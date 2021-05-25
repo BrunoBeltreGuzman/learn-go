@@ -2,7 +2,7 @@ package main
 
 type Finalsalary func(int, int) int
 
-func main() {
+func test() {
 
 	type person struct {
 		name   string
