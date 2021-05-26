@@ -29,7 +29,7 @@ func myApi(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func main() {
+func main0() {
 
 	//Server config
 	const PORT string = ":8080"
