@@ -1,9 +1,0 @@
-#nprogress .bar {
-       height: 3px;
-       background: #0084ff !important;
-}
-
-#nprogress .spinner-icon {
-       border-top-color: transparent !important;
-       border-left-color: transparent !important;
-}
