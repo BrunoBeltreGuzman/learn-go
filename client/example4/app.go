@@ -21,12 +21,17 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+port := "8080"
+
 	fileServer := http.FileServer(http.Dir("./static")) // New code
+
 	http.Handle("/", fileServer)                        // New code
 	http.HandleFunc("/hello", helloHandler)
 
-	fmt.Printf("Starting server at port 8080\n")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	fmt.Println("Starting server at port" + port)
+	fmt.Println("http://localhost:" + port + "/")
+
+	if err := http.ListenAndServe(":"+ port, nil); err != nil {
 		log.Fatal(err)
 	}
 }

@@ -1,26 +1,21 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 )
 
-func index(response http.ResponseWriter, request *http.Request) {
-	http.ServeFile(response, request, "index.html")
-}
-
 func main() {
-
 	//Server config
-	const PORT string = ":8080"
+	const PORT string = "8080"
 
-	//Routers
-	http.HandleFunc("/", index)
-
-	http.Handle("/", http.FileServer(http.Dir("css/")))
-
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/", http.FileServer(http.Dir("./static/")))
 
 	//Server start
-	log.Fatal(http.ListenAndServe(PORT, nil))
+	err := http.ListenAndServe(":"+PORT, nil)
+
+	if err != nil {
+		fmt.Println("Starting server at port" + PORT)
+		fmt.Println("http://localhost:" + PORT + "/")
+	}
 }
